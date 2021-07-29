@@ -7,3 +7,4 @@
     <item
         android:drawable="@drawable/red"/>
 </selector>
+///selector 로 상태에 따라 다른 배경 설정하기

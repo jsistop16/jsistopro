@@ -1,60 +1,54 @@
-package com.example.mytoast;
+package com.example.dialog;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button1 = (Button) findViewById(R.id.button);
-        button1.setOnClickListener(new OnClickListener() {
+        Button button = (Button) findViewById(R.id.button);
+        textView = (TextView) findViewById(R.id.textView);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "위치가 바뀐 토스트", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.TOP|Gravity.LEFT, 200, 200);
-                toast.show();
+                showMessage();
             }
         });
-
-        Button button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new OnClickListener() {
+    }
+    public void showMessage(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("안내");
+        builder.setMessage("종료하시겠습니까?");
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.toastborder, (ViewGroup)findViewById(R.id.toast_layout_root));
-                TextView text = (TextView) layout.findViewById(R.id.text);
-                text.setText("모양을 바꾼 토스트");
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.CENTER, 0, -100);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setView(layout);
-
-                toast.show();
-
-
+            public void onClick(DialogInterface dialog, int which) {
+                Snackbar.make(textView,"예를 눌렀습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
-
-        Button button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(new OnClickListener() {
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Snackbar.make(v, "스낵바입니다.", Snackbar.LENGTH_LONG).show();
+            public void onClick(DialogInterface dialog, int which) {
+                Snackbar.make(textView,"아니오를 눌렀습니다.", Snackbar.LENGTH_LONG).show();
             }
         });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

@@ -16,7 +16,7 @@ public class SingerItemView extends LinearLayout {
         init(context);
     }
 
-    public SingerItemView(Context context, @Nullable @org.jetbrains.annotations.Nullable AttributeSet attrs) {
+    public SingerItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }

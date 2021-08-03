@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     class SingerAdapter extends BaseAdapter{
 
-        ArrayList<SingerItem> arrayList = new ArrayList<SingerItem>();
+        ArrayList<SingerItem> items = new ArrayList<SingerItem>();
 
         @Override
         public int getCount() { //SingerAdapter라는 클래스에 몇개의 아이템이 있는지

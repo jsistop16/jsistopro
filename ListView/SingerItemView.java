@@ -1,8 +1,10 @@
 package com.example.mylistview;
 
 import android.content.Context;
+import android.media.Image;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 public class SingerItemView extends LinearLayout { //singer_item.xml의 최상위 레이아웃인 LinearLayout을 상속
     TextView textView1;
     TextView textView2;
+    ImageView imageView;
     public SingerItemView(Context context) {
         super(context);
         init(context);
@@ -27,6 +30,7 @@ public class SingerItemView extends LinearLayout { //singer_item.xml의 최상�
 
         textView1 = (TextView) findViewById(R.id.textview1);//singer_item.xml에 있는 textview1을 가져옴
         textView2 = (TextView) findViewById(R.id.textview2);
+        imageView = (ImageView) findViewById(R.id.imageview);
     }
 
     public void setName(String name){
@@ -35,5 +39,9 @@ public class SingerItemView extends LinearLayout { //singer_item.xml의 최상�
 
     public void setMobile(String mobile) {
         textView2.setText(mobile);
+    }
+
+    public void setImageView(int resid){
+        imageView.setImageResource(resid);
     }
 }

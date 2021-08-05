@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         SingerAdapter adapter = new SingerAdapter();
 
-        adapter.addItem(new SingerItem("aaa", "010-1000-1000"));
-        adapter.addItem(new SingerItem("bbb", "010-2000-2000"));
-        adapter.addItem(new SingerItem("ccc", "010-3000-3000"));
-        adapter.addItem(new SingerItem("ddd", "010-4000-4000"));
-        adapter.addItem(new SingerItem("eee", "010-5000-5000"));
-        adapter.addItem(new SingerItem("fff", "010-1000-1000"));
-        adapter.addItem(new SingerItem("ggg", "010-2000-2000"));
-        adapter.addItem(new SingerItem("hhh", "010-3000-3000"));
-        adapter.addItem(new SingerItem("iii", "010-4000-4000"));
-        adapter.addItem(new SingerItem("jjj", "010-5000-5000"));
+        adapter.addItem(new SingerItem("aaa", "010-1000-1000", R.drawable.man1));
+        adapter.addItem(new SingerItem("bbb", "010-2000-2000", R.drawable.woman1));
+        adapter.addItem(new SingerItem("ccc", "010-3000-3000", R.drawable.man1));
+        adapter.addItem(new SingerItem("ddd", "010-4000-4000", R.drawable.woman1));
+        adapter.addItem(new SingerItem("eee", "010-5000-5000", R.drawable.man1));
+        adapter.addItem(new SingerItem("fff", "010-1000-1000", R.drawable.woman1));
+        adapter.addItem(new SingerItem("ggg", "010-2000-2000", R.drawable.man1));
+        adapter.addItem(new SingerItem("hhh", "010-3000-3000", R.drawable.woman1));
+        adapter.addItem(new SingerItem("iii", "010-4000-4000", R.drawable.man1));
+        adapter.addItem(new SingerItem("jjj", "010-5000-5000", R.drawable.woman1));
 
         listView.setAdapter(adapter);
 
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             SingerItem item = items.get(position);
             view.setName(item.getName()); // 윗줄에서 정의된 item값을 view의 이름으로 설정함
             view.setMobile(item.getMobile());
+            view.setImageView(item.getResid());
 
             return view;
         }

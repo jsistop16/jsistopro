@@ -3,10 +3,12 @@ package com.example.mylistview;
 public class SingerItem {
     String name;
     String mobile;
+    int resid;
 
-    public SingerItem(String name, String mobile) {//생성자
+    public SingerItem(String name, String mobile, int resid) {//생성자
         this.name = name;
         this.mobile = mobile;
+        this.resid = resid;
     }
 
     public String getName() {
@@ -23,6 +25,14 @@ public class SingerItem {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    public int getResid() {
+        return resid;
+    }
+
+    public void setResid(int resid) {
+        this.resid = resid;
     }
 
     @Override

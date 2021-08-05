@@ -2,11 +2,11 @@ package com.example.mylistview;
 
 public class SingerItem {
     String name;
-    String number;
+    String mobile;
 
-    public SingerItem(String name, String number) {
+    public SingerItem(String name, String mobile) {//생성자
         this.name = name;
-        this.number = number;
+        this.mobile = mobile;
     }
 
     public String getName() {
@@ -17,19 +17,19 @@ public class SingerItem {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     @Override
-    public String toString() {
+    public String toString() { //문자열로 출려하기 위한 메소드, 데이터가 잘 들어갔는지 확인용
         return "SingerItem{" +
                 "name='" + name + '\'' +
-                ", number='" + number + '\'' +
+                ", mobile='" + mobile + '\'' +
                 '}';
     }
 }

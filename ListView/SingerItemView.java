@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-public class SingerItemView extends LinearLayout {
+public class SingerItemView extends LinearLayout { //singer_item.xml의 최상위 레이아웃인 LinearLayout을 상속
     TextView textView1;
     TextView textView2;
     public SingerItemView(Context context) {
@@ -33,7 +33,7 @@ public class SingerItemView extends LinearLayout {
         textView1.setText(name);
     }
 
-    public void setMobile(String mobile){
+    public void setMobile(String mobile) {
         textView2.setText(mobile);
     }
 }

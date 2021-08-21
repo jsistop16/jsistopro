@@ -10,23 +10,23 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     SingerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         ListView listView = (ListView) findViewById(R.id.listView);
 
         //데이터 추가하는 부분, 어댑터에 추가하는것,
         adapter = new SingerAdapter();//어댑터 객체 생성
-        adapter.additem(new Singeritem("김준성", "010-8000-8000"));//생성자에 추가
-        adapter.additem(new Singeritem("김준성", "010-8000-8000"));
-        adapter.additem(new Singeritem("김준성", "010-8000-8000"));
-        adapter.additem(new Singeritem("김준성", "010-8000-8000"));
-        adapter.additem(new Singeritem("김준성", "010-8000-8000"));
+        adapter.additem(new Singeritem2("김준성", "010-8000-8000", R.drawable.ic_launcher_background));//생성자에 추가
+        adapter.additem(new Singeritem2("김준성", "010-8000-8000", R.drawable.ic_launcher_background));
+        adapter.additem(new Singeritem2("김준성", "010-8000-8000", R.drawable.ic_launcher_foreground));
+        adapter.additem(new Singeritem2("김준성", "010-8000-8000", R.drawable.ic_launcher_background));
+        adapter.additem(new Singeritem2("김준성", "010-8000-8000", R.drawable.ic_launcher_foreground));
 
         listView.setAdapter(adapter);//리스트뷰와 어댑터 연결,
         //어댑터에 있는 getview메소드를 호출함으로서 최종결과물이 나오긴함
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     //그리고 이렇게 만들어준 어댑터를 나중에 상속해서 추가적으로 필요한 데이터들만 추가해줄것임
 
     class SingerAdapter extends BaseAdapter{
-        ArrayList<Singeritem> items = new ArrayList<Singeritem>();//데이터들을 관리할수있는 배열리스트생성
+        ArrayList<Singeritem2> items = new ArrayList<Singeritem2>();//데이터들을 관리할수있는 배열리스트생성
         //하나의 문자를 데이터로 관리한다면 <String>을 추가해야되지만
         //핸드폰 연락처 아이템은 문자 하나로는 불가능함으로
         //그 정보를 담을 수 있는 별도의 객체를 정의해야함
@@ -65,13 +65,14 @@ public class MainActivity extends AppCompatActivity {
             //설정
             //Singeritemview라는 클래스를 만들었으므로 이걸 이용해서 객체를 만들어야함
             //그래야 뷰가 나옴
-            Singeritemview view = new Singeritemview(getApplicationContext());
-            Singeritem item = items.get(position);//데이터를 설정해줘야 데이터가 들어감
+            Singeritemview2 view = new Singeritemview2(getApplicationContext());
+            Singeritem2 item = items.get(position);//데이터를 설정해줘야 데이터가 들어감
             //items는 위에서 설정한 배열리스트
             //거기에서 position값을 이용해 데이터를 가져온것을 item이라는 객체에 저장
             //item은 Singeritem클래스고 부터 나온 객체
             view.setName(item.getName());//item에 있는 name변수를 setName메소드를 통해 저장
             view.setMobile(item.getMobile());
+            view.setImage(item.getResId());
             return view;
             //여기까지의 과정은 SingerAdapter라는 클래스만 만들어놓은거임
             //즉 아직 어댑터의 틀만 만들어 놓은것이고 그안에 데이터는 들어가있지 않은상태
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //그래서 어댑터안에 데이터를 담을 메소드를 추가해준다
-        public void additem(Singeritem item){
+        public void additem(Singeritem2 item){
             items.add(item);
         }
     }
